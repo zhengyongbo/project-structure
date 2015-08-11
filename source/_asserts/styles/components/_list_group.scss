@@ -1,0 +1,34 @@
+.my-list-group{
+	.list-group-item{
+		&:hover{
+			background-color: $hover-bg-color1;
+		}
+		.row-picture{
+			img{
+				width:139px;
+				height:105px;
+			}
+		}
+
+		.row-content{
+			width:calc(100% - 160px);
+			position:relative;
+		}
+
+		.price-block{
+			color:$second-color-color;
+			margin: 0;
+			font-size: 1.8em;
+			font-weight: bold;
+			text-align:right;
+			small{
+				font-size: 70%;
+			}
+		}
+	}
+
+	.list-group-separator:before{
+		width:100%;
+		border-bottom-style: dashed;
+	}
+}

@@ -1,0 +1,168 @@
+html,body{
+	height:100%;
+}
+@media (max-width:767px){
+	html,body{
+	//overflow-x:hidden;
+}
+}
+.full-height{
+	min-height:100%;
+	padding:0 10px;
+	margin:0 auto;
+}
+body{
+	font:14px/2 Microsoft YaHei,SimSun,Arial;
+}
+a, a:focus, a:hover {
+  color:$third-front-color;
+}
+ul , ol , li {
+	list-style-type:none; vertical-align: middle;
+}
+.h1, .h2, .h3, .h4, body, h1, h2, h3, h4, h5, h6 {
+  font-family:Microsoft YaHei,SimSun,Arial;
+}
+.hh-width-100p {
+	width:100%;
+}
+.height10{
+	height:10px;
+	font-size:0;
+	line-height:0;
+}
+.height50{
+	height:50px;
+}
+.height70{
+	height:70px;
+}
+.hh-wh-50{
+	width:50px;
+	height:50px;
+}
+.no-margin{
+	margin:0;
+}
+.hh-mlr--10 {
+	margin-left:-10px;
+	margin-right:-10px;
+}
+.hh-mtb-0 {
+	margin-top:0;
+	margin-bottom:0;
+}
+.hh-mtb-5{
+	margin-top:5px;
+	margin-bottom:5px;
+}
+.hh-mt-10{
+	margin-top:10px;
+}
+.hh-margin-10 {
+	margin:10px;
+}
+.hh-margin--10 {
+	margin:-10px;
+}
+.no-padding{
+	padding:0;
+}
+.hh-pt-10 {
+    padding-top:10px;
+}
+.hh-pt-15 {
+    padding-top:15px;
+}
+.hh-pt-20 {
+    padding-top:20px;
+}
+.hh-pb-30 {
+    padding-bottom:30px;
+}
+
+.hh-plr-0 {
+	padding-left:0;
+	padding-right:0;
+}
+.hh-plr-10 {
+	padding-left:10px;
+	padding-right:10px;
+}
+.hh-ptp-10 {
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.hh-padding-10 {
+	padding:10px;
+}
+.hh-padding-0 {
+	padding:0;
+}
+
+.hh-font-weight{
+	font-weight:bold;
+}
+.hh-line-1{
+	background:$four-bg-color;
+	border-top:solid 1px $four-border-color;
+	border-bottom:solid 1px $four-border-color;
+}
+@for $size from 10 through 24 {
+	.hh-font-size-#{$size} {
+		font-size: #{$size}px;
+	}
+}
+.border-div{
+	border: 1px solid #ccc;
+	padding: 10px;
+	margin: 10px 16px;
+}
+.form-group .form-control:focus, .form-control , .form-group-default .form-control:focus {
+    background-image: linear-gradient($main-bg-color, $main-bg-color), linear-gradient(#d2d2d2, #d2d2d2);
+}
+.btn-info:not(.btn-link):not(.btn-flat){
+	background-color:$main-bg-color;
+}
+.form-control{
+	background-image: none !important;
+	border-bottom: 1px solid $four-border-color !important;
+	transition-duration:.5s;
+}
+.form-control:focus{
+	background-image: none !important;
+	border-bottom: 1px solid $main-bg-color !important;
+	transition-duration:.5s;
+}
+.price-text{
+	color: $five-font-color1;
+	margin: 0;
+	font-size: 1.5em;
+	font-weight: bold;
+	text-align: right;
+	padding: 0;
+}
+.hh-fixed-bottom-btn {
+	position:fixed;
+	margin:0;
+	padding:0;
+	bottom:0;
+	background:$third-bg-color;
+	.full-width{
+		margin-top:10px;
+		.form-group {
+		    margin-bottom: 0;
+		}
+	}
+}
+@media (max-width:767px){
+	.container.hh-fixed-bottom-btn{
+		width:100%;
+}
+}
+.btn-fix-with-group .btn {
+	width:80px;
+	text-align:center;
+	padding:5px;
+	overflow:hidden;
+}
