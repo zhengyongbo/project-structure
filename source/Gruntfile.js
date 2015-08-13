@@ -13,16 +13,20 @@ module.exports = function(grunt) {
 
         // Watches files for changes and runs tasks based on the changed files
         watch: {
-            sass: {
+            //sass: {
+            //    files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+            //    tasks: ['sass:server', 'postcss', 'copy:sass', 'cssmin']
+            //},
+            compass: {
                 files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
-                tasks: ['sass:server', 'postcss', 'copy:sass', 'cssmin']
+                tasks: ['compass:dist', 'postcss', 'copy:sass', 'cssmin']
             },
             js: {
                 files: ['<%= config.app %>/scripts/{,*/}*.js'],
                 tasks: ['copy:dist', 'uglify']
             },
             images: {
-                files: ['<%= config.app %>/images/{,*/}*'],
+                files: ['<%= config.app %>/asserts/images/{,*/}*'],
                 tasks: ['copy:images']
             }
         },
@@ -46,6 +50,14 @@ module.exports = function(grunt) {
                     dest: '.tmp/styles',
                     ext: '.css'
                 }]
+            }
+        },
+
+        compass: {
+            dist: {
+                options: {
+                    config: 'config.rb'
+                }
             }
         },
 
@@ -94,7 +106,7 @@ module.exports = function(grunt) {
                     dest: '<%= config.dist %>',
                     src: [
                         '*.{ico,png,txt}',
-                        'images/{,*/}*.webp',
+                        'asserts/images/{,*/}*.webp',
                         '{,*/}*.html',
                         'scripts/*.js',
                         'styles/fonts/{,*/}*.*'
@@ -153,7 +165,7 @@ module.exports = function(grunt) {
                     cwd: '<%= config.app %>',
                     dest: '<%= config.dist %>',
                     src: [
-                        'images/*.png',
+                        'asserts/images/*.png',
                         'styles/*.jpg'
                     ]
                 }]
@@ -169,16 +181,14 @@ module.exports = function(grunt) {
                 ],
                 dependencies: {
                     'bootstrap': 'jquery',
-                    'bootstrap-material-design': ['nouislider', 'arrive', 'bootstrap']
+                    'bootstrap-material-design': ['arrive', 'bootstrap']
                 },
                 bowerOptions: {
                     relative: true
                 },
 
                 mainFiles: {
-                    'nouislider': ['distribute/nouislider.js'],
                     'bootstrap': ['dist/css/bootstrap.css', 'dist/js/bootstrap.js'],
-                    'bootstrap-calendar': ['./js/language/zh-CN.js', './js/calendar.js','./css/calendar.css'],
                     'slick-carousel': ['slick/slick.js', 'slick/slick.css']
                 }
             }
@@ -201,10 +211,6 @@ module.exports = function(grunt) {
                 files: {
                     '<%= config.dist %>/scripts/vendor.min.js': [
                         '<%= config.dist %>/scripts/vendor.js'
-                    ],
-
-                    '<%= config.dist %>/scripts/main.min.js': [
-                        '<%= config.dist %>/scripts/main.js'
                     ]
                 }
             }
@@ -214,17 +220,16 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-bower-concat');
     grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-compass');
 
     grunt.registerTask('default', [
         'clean:dist',
         'bower_concat',
-        'sass:dist',
+        'compass:dist',
         'postcss',
         'copy:dist',
         'uglify',

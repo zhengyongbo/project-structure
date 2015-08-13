@@ -10,5 +10,8 @@ port:             9001
 url:              http://www.unclezheng.com
 encoding:         UTF-8
 
+production: false
+# production: true
+
 
 
